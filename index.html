@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Map Strategy Game</title>
+  <style>
+    body { font-family: sans-serif; display: flex; gap: 20px; padding: 20px; }
+    canvas { border: 2px solid #333; background: #fff; cursor: crosshair; }
+    #ui { width: 300px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Game Canvas -->
+  <canvas id="mapCanvas" width="600" height="400"></canvas>
+
+  <!-- Control Panel -->
+  <div id="ui">
+    <h2>Map Game</h2>
+    
+    <!-- Phase 1: Drawing -->
+    <div id="drawPhase">
+      <p>Draw your borders on the canvas.</p>
+      <button id="finishDrawingBtn">Finish Map Setup</button>
+    </div>
+
+    <!-- Phase 2: Territory Setup -->
+    <div id="setupPhase" class="hidden">
+      <h3>Configure Region</h3>
+      <p id="selectedRegionText">Click a region on the map</p>
+      <label>Owner: <input type="text" id="ownerInput" placeholder="Player 1"></label><br><br>
+      <label>Environment: 
+        <select id="envSelect">
+          <option value="Plains">Plains</option>
+          <option value="Mountains">Mountains</option>
+          <option value="Forest">Forest</option>
+        </select>
+      </label><br><br>
+      <label>Military Strength: <input type="number" id="militaryInput" value="100"></label><br><br>
+      <button id="saveRegionBtn">Save Region</button>
+      <button id="startGameBtn">Start Game</button>
+    </div>
+
+    <!-- Phase 3: Battle -->
+    <div id="battlePhase" class="hidden">
+      <h3>Attack Phase</h3>
+      <p>Select Attacking Region -> Select Defending Region</p>
+      <label>Troops to Send: <input type="number" id="troopsToSend" value="50"></label><br><br>
+      <button id="attackBtn">Attack!</button>
+      <p id="battleLog"></p>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
